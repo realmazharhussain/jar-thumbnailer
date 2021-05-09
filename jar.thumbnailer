@@ -1,0 +1,4 @@
+[Thumbnailer Entry]
+TryExec=jar-thumbnailer
+Exec=jar-thumbnailer %i %o
+MimeType=application/x-java-archive

@@ -1,0 +1,12 @@
+#!/bin/bash
+inFile="$1"
+outFile="$2"
+
+manifest="$(unzip -q -p "$inFile" META-INF/MANIFEST.MF)"
+if line="$(echo "$manifest" | grep -iE 'midlet-icon: ')"; then
+  icon="$(echo "$line" | sed 's/MIDlet-Icon: \///')"
+elif line="$(echo "$manifest" | grep -iE 'midlet-1: ')"; then
+  icon="$(echo "$line" | cut -d "," -f 2 | cut -c 3-)"
+fi
+icon="$(echo $icon | sed 's|\r||')" #Remove carriage return at the end
+unzip -p "$inFile" "$icon" > "$outFile"
