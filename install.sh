@@ -5,7 +5,7 @@ if [ "$UID" = 0 ]; then
   [ -z "$PREFIX" ] && PREFIX=/usr/local
   [ -z "$DESTDIR" ] && DESTDIR=/
   mkdir -p "$DESTDIR"/"$PREFIX"/{bin,share/thumbnailers}
-  chmod +x AppImage-thumbnailer
+  chmod +x jar-thumbnailer
   cp jar-thumbnailer "$DESTDIR"/"$PREFIX"/bin/
   cp jar.thumbnailer "$DESTDIR"/"$PREFIX"/share/thumbnailers/
   echo "Done."
